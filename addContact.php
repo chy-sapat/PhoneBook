@@ -6,7 +6,10 @@
     $error = "false";
     $errorMsg = "";
 
-    $phoneValidationRegex = "/^\\+?[1-9][0-9]{7,14}$/";
+    $name = "";
+    $phone = "";
+
+    $phoneValidationRegex = "/^[0-9]{10}$/";
 
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         $name = $_POST["name"];
@@ -43,11 +46,11 @@
             <p class="error-msg" aria-expanded="<?php echo $error ?>"><?php echo $errorMsg; ?></p>
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" value="<?php echo $name; ?>">
             </div>
             <div class="form-group">
                 <label for="phone">Phone No</label>
-                <input type="text" name="phone" id="phone">
+                <input type="text" name="phone" id="phone" value="<?php echo $phone; ?>">
             </div>
             <button type="submit">Add</button>
             <p><a href="contacts.php">Back to contact</a></p>
